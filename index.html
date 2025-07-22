@@ -20,22 +20,22 @@
   </video>
 
   <!-- Theme Toggle Button -->
-    <div class="theme-toggle-container">
+  <div class="theme-toggle-container">
     <input type="checkbox" id="theme-toggle" class="toggle-input" />
     <label for="theme-toggle" class="toggle-label">
-        <span class="toggle-indicator"></span>
-        <svg class="toggle-icon light" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <span class="toggle-indicator"></span>
+      <svg class="toggle-icon light" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="5" />
         <line x1="12" y1="2" x2="12" y2="4" />
         <line x1="12" y1="20" x2="12" y2="22" />
         <line x1="2" y1="12" x2="4" y2="12" />
         <line x1="20" y1="12" x2="22" y2="12" />
-        </svg>
-        <svg class="toggle-icon dark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      </svg>
+      <svg class="toggle-icon dark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 3h.01M12 21h.01M19.071 19.071l-.707-.707M4.929 4.929l-.707-.707M19.071 4.929l-.707.707M4.929 19.071l-.707-.707M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
-        </svg>
+      </svg>
     </label>
-    </div>
+  </div>
 
   <!-- Hero Section -->
   <header class="hero fade-in">
@@ -44,7 +44,7 @@
       <h1>Heshan Rashmika</h1>
       <p>IT Support & Network Engineer | Cybersecurity Enthusiast</p>
       <div class="contact">
-        <a href="mailto:heshanrashmika1224@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Heshan,%20I%20would%20like%20to%20discuss...%20Thank%20you!" class="contact-btn">✉️ Email</a>
+        <button class="contact-btn email-btn">✉️ Email</button>
         <a href="https://www.linkedin.com/in/heshan-rashmika-5b77012a8/" target="_blank" class="contact-btn">🔗 LinkedIn</a>
         <a href="https://github.com/HE2001rn" target="_blank" class="contact-btn">💻 GitHub</a>
         <a href="Heshan_Rashmika_CV.pdf" download class="contact-btn download-btn">⬇️ Download CV</a>
@@ -58,6 +58,16 @@
       <p>© 2025 Heshan Rashmika | Seeduwa | 📞 +94 78 638 6950</p>
     </div>
   </footer>
+
+  <!-- Popup for Email -->
+  <div id="email-popup" class="popup">
+    <div class="popup-content">
+      <h3>Email Address</h3>
+      <p id="email-text">heshanrashmika1224@gmail.com</p>
+      <button class="copy-btn">Copy Email Address</button>
+      <p>Paste into your email client to send a message.</p>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script>
@@ -78,6 +88,37 @@
       });
     }, { threshold: 0.1 });
     faders.forEach(el => appearOnScroll.observe(el));
+
+    // Email Popup Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailBtn = document.querySelector('.email-btn');
+      const popup = document.getElementById('email-popup');
+      const copyBtn = document.querySelector('.copy-btn');
+      const emailText = document.getElementById('email-text');
+
+      // Ensure popup is hidden on page load
+      popup.style.display = 'none';
+
+      emailBtn.addEventListener('click', () => {
+        popup.style.display = 'block';
+      });
+
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(emailText.textContent)
+          .then(() => {
+            alert('Email address copied to clipboard!');
+            popup.style.display = 'none'; // Auto-close popup on successful copy
+          })
+          .catch(err => alert('Failed to copy email address.'));
+      });
+
+      // Close popup when clicking outside
+      window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+          popup.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
