@@ -96,10 +96,19 @@
       const copyBtn = document.querySelector('.copy-btn');
       const emailText = document.getElementById('email-text');
 
+      if (!emailBtn) {
+        console.log('Email button not found!');
+        return;
+      }
+
+      // Debug: Confirm script is running
+      console.log('Script loaded and DOM ready');
+
       // Ensure popup is hidden on page load
       popup.style.display = 'none';
 
       emailBtn.addEventListener('click', () => {
+        console.log('Email button clicked');
         popup.style.display = 'block';
       });
 
