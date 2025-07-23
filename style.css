@@ -42,7 +42,6 @@ body {
   transition: background 0.5s ease, color 0.5s ease;
   position: relative;
   z-index: 1;
-  min-height: 100vh; /* Ensure full viewport height */
 }
 
 .container {
@@ -282,13 +281,13 @@ footer {
 .popup {
   display: none; /* Ensure hidden by default */
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .popup-content {
@@ -301,12 +300,7 @@ footer {
   color: var(--text);
   max-width: 300px;
   width: 90%;
-  height: auto;
   margin: 0 auto;
-}
-
-.debug-popup {
-  border: 2px solid red; /* Debug: Visible border to check positioning */
 }
 
 #email-text {
