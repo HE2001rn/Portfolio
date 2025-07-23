@@ -42,6 +42,7 @@ body {
   transition: background 0.5s ease, color 0.5s ease;
   position: relative;
   z-index: 1;
+  min-height: 100vh; /* Ensure full viewport height */
 }
 
 .container {
@@ -280,7 +281,7 @@ footer {
 /* Email Popup Styles */
 .popup {
   display: none; /* Ensure hidden by default */
-  position: fixed; /* Changed from 'center' to 'fixed' */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -303,6 +304,11 @@ footer {
   max-width: 300px;
   width: 90%;
   height: auto;
+  transform: translate(-50%, -50%); /* Center the content explicitly */
+}
+
+.debug-popup {
+  border: 2px solid red; /* Debug: Visible border to check positioning */
 }
 
 #email-text {
