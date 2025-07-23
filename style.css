@@ -282,8 +282,6 @@ footer {
 .popup {
   display: none; /* Ensure hidden by default */
   position: fixed;
-  top: 0;
-  left: 50%;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -304,6 +302,7 @@ footer {
   max-width: 300px;
   width: 90%;
   height: auto;
+  margin: 0 auto;
 }
 
 .debug-popup {
